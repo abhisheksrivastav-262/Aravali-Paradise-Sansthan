@@ -6,11 +6,15 @@ import { Phone, Mail, MapPin, Menu, X, Heart, ChevronDown } from 'lucide-react';
 export default function Header() {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileWorkOpen, setMobileWorkOpen] = useState(false);
   const location = useLocation();
 
   const isActive = (path) => location.pathname === path;
 
-  const closeMobileDrawer = () => setMobileDrawerOpen(false);
+  const closeMobileDrawer = () => {
+    setMobileDrawerOpen(false);
+    setMobileWorkOpen(false);
+  };
 
   return (
     <>
@@ -109,7 +113,6 @@ export default function Header() {
 
           {/* Right Side CTAs */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0 }}>
-
             <button
               className="mobile-toggle"
               onClick={() => setMobileDrawerOpen(true)}
@@ -141,40 +144,106 @@ export default function Header() {
         </div>
 
         <ul className="mobile-nav-list">
+          {/* Simple top-level items */}
           {[
             { path: '/', label: 'Home' },
-            { path: '/about', label: 'About APS' },
-            { path: '/vision-mission', label: 'Vision & Mission' },
-            { path: '/programs', label: 'All Programs' },
-            { path: '/education', label: '  ↳ Education & Schools' },
-            { path: '/health', label: '  ↳ Health & Wellness' },
-            { path: '/women-youth', label: '  ↳ Women & Youth' },
-            { path: '/environment', label: '  ↳ Environment & Water' },
-            { path: '/livelihood', label: '  ↳ Livelihood & Skills' },
-            { path: '/objectives', label: 'Objectives & Strategies' },
-            { path: '/governance', label: 'Governance & Transparency' },
-            { path: '/team', label: 'Governing Body' },
-            { path: '/operational-area', label: 'Alwar Operational Area' },
-            { path: '/expertise', label: 'Areas of Expertise' },
-            { path: '/beneficiaries', label: 'Beneficiaries' },
-            { path: '/gallery', label: 'Photo Gallery' },
-            { path: '/get-involved', label: 'Get Involved / Volunteer' },
-            { path: '/contact', label: 'Contact Us' },
+            { path: '/about', label: 'About' },
+            { path: '/vision-mission', label: 'Vision' },
           ].map(item => (
             <li className="mobile-nav-item" key={item.path}>
               <Link
                 to={item.path}
                 className="mobile-nav-link"
                 onClick={closeMobileDrawer}
-                style={{ fontSize: item.label.startsWith('  ↳') ? '0.88rem' : '1rem', color: item.label.startsWith('  ↳') ? 'var(--color-gray-dark)' : 'var(--color-primary-dark)' }}
               >
                 {item.label}
               </Link>
             </li>
           ))}
 
+          {/* Our Work — collapsible */}
+          <li className="mobile-nav-item">
+            <button
+              onClick={() => setMobileWorkOpen(prev => !prev)}
+              style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                width: '100%', background: 'none', border: 'none', cursor: 'pointer',
+                padding: '0.85rem 1.2rem',
+                fontSize: '1rem', fontWeight: 600,
+                color: 'var(--color-primary-dark)',
+                fontFamily: 'var(--font-heading)',
+                borderBottom: '1px solid var(--color-sand-dark)',
+              }}
+              aria-expanded={mobileWorkOpen}
+            >
+              <span>Our Work</span>
+              <ChevronDown
+                size={18}
+                style={{
+                  transition: 'transform 0.25s ease',
+                  transform: mobileWorkOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                  color: 'var(--color-terracotta)',
+                }}
+              />
+            </button>
+
+            {mobileWorkOpen && (
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, background: 'var(--color-sand)' }}>
+                {[
+                  { path: '/programs', label: 'All Programs', bold: true },
+                  { path: '/education', label: 'Education & Schools' },
+                  { path: '/health', label: 'Health & Wellness' },
+                  { path: '/women-youth', label: 'Women & Youth' },
+                  { path: '/environment', label: 'Environment & Water' },
+                  { path: '/livelihood', label: 'Livelihood & Skills' },
+                ].map(item => (
+                  <li key={item.path}>
+                    <Link
+                      to={item.path}
+                      onClick={closeMobileDrawer}
+                      style={{
+                        display: 'block',
+                        padding: '0.7rem 1.2rem 0.7rem 2rem',
+                        fontSize: '0.92rem',
+                        color: item.bold ? 'var(--color-primary-dark)' : 'var(--color-gray-dark)',
+                        fontWeight: item.bold ? 700 : 500,
+                        borderBottom: '1px solid rgba(0,0,0,0.05)',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      {item.bold ? item.label : `↳ ${item.label}`}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+
+          {/* Remaining top-level items */}
+          {[
+            { path: '/objectives', label: 'Objectives' },
+            { path: '/governance', label: 'Governance' },
+            { path: '/gallery', label: 'Gallery' },
+            { path: '/contact', label: 'Contact' },
+            { path: '/donate', label: 'Donate' },
+          ].map(item => (
+            <li className="mobile-nav-item" key={item.path}>
+              <Link
+                to={item.path}
+                className="mobile-nav-link"
+                onClick={closeMobileDrawer}
+                style={{
+                  fontWeight: item.path === '/donate' ? 700 : undefined,
+                  color: item.path === '/donate' ? 'var(--color-terracotta)' : undefined,
+                }}
+              >
+                {item.path === '/donate' ? `♥ ${item.label}` : item.label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </>
   );
 }
+
