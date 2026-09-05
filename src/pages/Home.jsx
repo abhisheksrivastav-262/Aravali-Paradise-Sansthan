@@ -309,6 +309,8 @@ export default function Home() {
               <img
                 src={selectedProgram.image}
                 alt={selectedProgram.title}
+                loading="lazy"
+                decoding="async"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
               />
             </div>

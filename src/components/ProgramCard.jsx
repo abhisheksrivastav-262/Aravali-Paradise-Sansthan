@@ -10,6 +10,8 @@ export default function ProgramCard({ program, onLearnMore }) {
         <img 
           src={program.image} 
           alt={program.title}
+          loading="lazy"
+          decoding="async"
           style={{ 
             width: '100%', 
             height: '100%', 

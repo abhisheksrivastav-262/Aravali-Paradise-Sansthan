@@ -72,7 +72,9 @@ export default function Programs() {
             <div style={{ position: 'relative', height: 'clamp(200px, 35vw, 280px)', overflow: 'hidden', borderRadius: '12px', marginBottom: '1.2rem', backgroundColor: '#1A2922' }}>
               <img 
                 src={selectedProgram.image} 
-                alt={selectedProgram.title} 
+                alt={selectedProgram.title}
+                loading="lazy"
+                decoding="async"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} 
               />
             </div>

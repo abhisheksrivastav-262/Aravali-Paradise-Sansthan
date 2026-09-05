@@ -1,7 +1,6 @@
 import React from 'react';
 import SectionHeader from '../components/SectionHeader';
 import { OBJECTIVES } from '../data/organizationData';
-import { Target } from 'lucide-react';
 
 export default function Objectives() {
   return (
@@ -28,28 +27,42 @@ export default function Objectives() {
       <section className="section-padding" style={{ backgroundColor: 'var(--color-sand)' }}>
         <div className="container">
           <SectionHeader
-             badge="Chartered Goals"
-             title="What We Strive to Achieve"
-             subtitle="Guided by our official registration mandate."
+            badge="Chartered Goals"
+            title="What We Strive to Achieve"
+            subtitle="Guided by our official registration mandate."
           />
-          
+
           <div className="card" style={{ padding: 'clamp(1.8rem, 4vw, 3.5rem)', background: '#FFFFFF', maxWidth: '900px', margin: '0 auto' }}>
-             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                {OBJECTIVES.map((obj, idx) => (
-                  <div key={idx} style={{ display: 'flex', gap: '1.2rem', alignItems: 'flex-start' }}>
-                     <div style={{ 
-                        width: '32px', height: '32px', minWidth: '32px', borderRadius: '50%', 
-                        background: 'rgba(168,74,41,0.1)', color: 'var(--color-terracotta)', 
-                        display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: '0.9rem' 
-                     }}>
-                        {idx + 1}
-                     </div>
-                     <p style={{ fontSize: 'clamp(0.95rem, 2vw, 1.05rem)', color: 'var(--color-gray-dark)', lineHeight: 1.6, margin: 0, marginTop: '4px' }}>
-                        {obj}
-                     </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+              {OBJECTIVES.map((obj, idx) => (
+                <div key={obj.id || idx} style={{ display: 'flex', gap: '1.2rem', alignItems: 'flex-start' }}>
+                  <div style={{
+                    width: '40px', height: '40px', minWidth: '40px', borderRadius: '50%',
+                    background: 'linear-gradient(135deg, var(--color-primary-dark), var(--color-primary))',
+                    color: '#FFFFFF',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontWeight: 700, fontSize: '0.85rem', fontFamily: 'var(--font-heading)',
+                    flexShrink: 0
+                  }}>
+                    {obj.id || String(idx + 1).padStart(2, '0')}
                   </div>
-                ))}
-             </div>
+                  <div>
+                    <h3 style={{
+                      fontSize: 'clamp(1rem, 2.2vw, 1.1rem)',
+                      color: 'var(--color-primary-dark)',
+                      fontWeight: 700,
+                      marginBottom: '0.35rem',
+                      marginTop: '6px'
+                    }}>
+                      {obj.title}
+                    </h3>
+                    <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1rem)', color: 'var(--color-gray-dark)', lineHeight: 1.7, margin: 0 }}>
+                      {obj.text}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
