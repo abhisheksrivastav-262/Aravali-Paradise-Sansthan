@@ -58,11 +58,11 @@ export default function Livelihood() {
 
             <div>
               <div className="card" style={{ padding: 'clamp(1.2rem, 2.5vw, 2rem)', background: 'var(--color-sand)' }}>
-                <div style={{ position: 'relative', height: 'clamp(200px, 30vw, 300px)', overflow: 'hidden', borderRadius: '12px', marginBottom: '1.2rem', backgroundColor: '#1A2922' }}>
+                <div style={{ position: 'relative', aspectRatio: '4 / 3', overflow: 'hidden', borderRadius: '12px', marginBottom: '1.2rem', backgroundColor: '#1A2922' }}>
                   <img
-                    src="https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?auto=format&fit=crop&w=1000&q=80"
+                    src="/assets/gallery/aps-gallery-14.jpeg"
                     alt="Rural Livelihoods"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%' }}
+                    style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'center 30%' }}
                   />
                 </div>
                 <h4 style={{ color: 'var(--color-primary-dark)', fontSize: '1.1rem', marginBottom: '0.4rem' }}>

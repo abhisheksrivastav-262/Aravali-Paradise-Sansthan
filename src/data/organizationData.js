@@ -25,6 +25,11 @@ export const ORG_DETAILS = {
     registrationDate: "24.11.2008",
     schoolRegistrationNumber: "DEO/ALW/ORG/R/251 (Middle School)",
     incomeTaxRegistration: "12AA Registered in Alwar",
+    // Exact 12A / 80G / CSR certificate numbers — fill when customer provides them.
+    // Kept null intentionally: UI shows "Registered" status without guessing numbers.
+    twelveA: null, // e.g. "AACTA1234XE20221"
+    eightyG: null, // e.g. "AACTA1234XF20221"
+    csrNumber: null, // e.g. "CSR00012345"
     pan: "AABAA3431D",
     bankName: "Rajasthan Gramin Bank, Alwar"
   },
@@ -114,7 +119,7 @@ export const PROGRAMS = [
     id: "education-awareness",
     title: "Education Awareness & Schooling",
     category: "Education",
-    image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1200&q=80",
+    image: "/assets/gallery/aps-gallery-27.jpeg",
     shortDesc: "Operating the APS Middle School and driving grassroots awareness to prevent school dropouts in rural Alwar.",
     fullDesc: "APS actively runs a recognized Middle School (DEO/ALW/ORG/R/251) in Alwar, delivering quality education to underprivileged children. Beyond classroom instruction, APS conducts extensive doorstep campaigns encouraging parents to enroll their children, especially girls, in school."
   },
@@ -122,7 +127,7 @@ export const PROGRAMS = [
     id: "govt-school-survey",
     title: "Government School Basic Survey",
     category: "Education",
-    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80",
+    image: "/assets/gallery/aps-gallery-28.jpeg",
     shortDesc: "Comprehensive baseline survey of government schools conducted in Bharatpur District to identify infrastructure & learning gaps.",
     fullDesc: "Demonstrating program research capability, APS executed a thorough basic survey of government schools in Bharatpur District. The survey evaluated classroom facilities, drinking water access, sanitation condition, teacher-student ratios, and dropout patterns to help policymakers strengthen rural school infrastructure."
   },
@@ -130,7 +135,7 @@ export const PROGRAMS = [
     id: "health-camps-polio",
     title: "Health Camps & Pulse Polio Drive",
     category: "Health",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
+    image: "/assets/gallery/aps-gallery-07.jpeg",
     shortDesc: "Free rural health checkup camps, blood donation drives, and active support for national Pulse Polio immunization.",
     fullDesc: "APS organizes periodic medical camps in remote villages where qualified doctors provide free health checkups, diagnostic advice, and essential medicines. The team actively collaborates with government health workers during national Pulse Polio immunization rounds."
   },
@@ -138,7 +143,7 @@ export const PROGRAMS = [
     id: "reproductive-health",
     title: "Reproductive & Adolescent Health Education",
     category: "Health",
-    image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=80",
+    image: "/assets/gallery/aps-gallery-22.jpeg",
     shortDesc: "Breaking taboos surrounding reproductive health, adolescent hygiene, maternal health, and HIV/AIDS prevention.",
     fullDesc: "Through specialized workshops, APS educates adolescent girls and women on menstrual hygiene, maternal nutrition, family welfare, and reproductive health rights in a culturally respectful environment."
   },
@@ -146,7 +151,7 @@ export const PROGRAMS = [
     id: "women-empowerment",
     title: "Women Development & SHG Formation",
     category: "Women Development",
-    image: "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=1200&q=80",
+    image: "/assets/gallery/aps-gallery-14.jpeg",
     shortDesc: "Fostering economic independence through Self-Help Groups, financial literacy, and skill workshops.",
     fullDesc: "APS mobilizes women into village Self-Help Groups (SHGs) to promote micro-savings, internal credit, and collective decision making. Women receive practical training in handicraft making, tailoring, and small business management."
   },
@@ -154,7 +159,7 @@ export const PROGRAMS = [
     id: "youth-vocation",
     title: "Youth Skill & Livelihood Training",
     category: "Youth Development",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
+    image: "/assets/gallery/aps-gallery-29.jpeg",
     shortDesc: "Vocational skill development and income enhancement opportunities for unemployed rural youth.",
     fullDesc: "To stem rural-urban distress migration, APS delivers practical skill development training in technical crafts, basic computer usage, repair trades, and self-employment avenues, building self-confidence among young men and women."
   },
@@ -162,7 +167,7 @@ export const PROGRAMS = [
     id: "sustainable-agriculture",
     title: "Sustainable Agriculture & Farming",
     category: "Environment",
-    image: "https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=1200&q=80",
+    image: "/assets/gallery/aps-gallery-11.jpeg",
     shortDesc: "Promoting organic farming, soil health management, water efficient irrigation, and improved crop yields.",
     fullDesc: "Working in the arid and semi-arid terrain of Rajasthan, APS guides small farmers on vermicomposting, crop rotation, soil conservation, drip irrigation techniques, and indigenous seed preservation."
   },
@@ -170,7 +175,7 @@ export const PROGRAMS = [
     id: "environment-conservation",
     title: "Environment & Natural Resource Conservation",
     category: "Environment",
-    image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80",
+    image: "/assets/gallery/aps-gallery-03.jpeg",
     shortDesc: "Community plantation drives, rainwater harvesting, animal husbandry, and eco-awareness campaigns.",
     fullDesc: "APS leads village afforestation drives, restores common pasture lands, builds rainwater recharge pits, and promotes animal husbandry as a resilient secondary source of rural income."
   },
@@ -178,7 +183,7 @@ export const PROGRAMS = [
     id: "water-sanitation",
     title: "Water & Sanitation (WASH) Awareness",
     category: "Environment",
-    image: "https://images.unsplash.com/photo-1538300342682-cf57afb97285?auto=format&fit=crop&w=1200&q=80",
+    image: "/assets/gallery/aps-gallery-31.jpeg",
     shortDesc: "Promoting clean drinking water storage, handwashing hygiene, and open-defecation-free villages.",
     fullDesc: "Clean water and sanitation are fundamental to community health. APS conducts street plays, school hygiene sessions, and village meetings emphasizing clean water handling and proper sanitation infrastructure."
   },
@@ -186,7 +191,7 @@ export const PROGRAMS = [
     id: "human-rights",
     title: "Human Rights & Social Justice",
     category: "Community Development",
-    image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=1200&q=80",
+    image: "/assets/gallery/aps-gallery-12.jpeg",
     shortDesc: "Awareness campaigns safeguarding human rights, legal literacy, and social security for informal workers.",
     fullDesc: "APS advocates for the rights of landless, Dalit, nomadic, and unorganized sector workers, assisting them in obtaining government identification, pension schemes, ration cards, and labor welfare benefits."
   },
@@ -194,7 +199,7 @@ export const PROGRAMS = [
     id: "drug-abuse-prevention",
     title: "Prevention of Drug Abuse & Rehabilitation Awareness",
     category: "Health",
-    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80",
+    image: "/assets/gallery/aps-gallery-13.jpeg",
     shortDesc: "Community counseling and youth awareness campaigns to prevent substance abuse in rural areas.",
     fullDesc: "APS conducts de-addiction awareness drives and peer counseling sessions to protect youth from substance dependency, encouraging positive sports and community service activities instead."
   }

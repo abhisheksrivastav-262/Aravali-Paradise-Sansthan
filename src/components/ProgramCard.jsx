@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 export default function ProgramCard({ program, onLearnMore }) {
   return (
     <div className="card" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-      {/* Image Container with safe framing */}
-      <div style={{ position: 'relative', height: '220px', overflow: 'hidden', backgroundColor: '#1A2922' }}>
+      {/* Image Container — adaptive 4:3, full photo visible, never cropped */}
+      <div style={{ position: 'relative', aspectRatio: '4 / 3', overflow: 'hidden', backgroundColor: '#1A2922' }}>
         <img 
           src={program.image} 
           alt={program.title}
@@ -15,7 +15,7 @@ export default function ProgramCard({ program, onLearnMore }) {
           style={{ 
             width: '100%', 
             height: '100%', 
-            objectFit: 'cover',
+            objectFit: 'contain',
             transition: 'transform 0.5s ease'
           }}
           className="program-img"

@@ -4,7 +4,7 @@ import { ORG_DETAILS, VISION_MISSION, PROGRAMS, ALWAR_TEHSILS, BENEFICIARIES } f
 import SectionHeader from '../components/SectionHeader';
 import StatCard from '../components/StatCard';
 import ProgramCard from '../components/ProgramCard';
-import { Users, BookOpen, Heart, ShieldCheck, MapPin, ArrowRight, CheckCircle2, Award, Briefcase, X } from 'lucide-react';
+import { Users, BookOpen, Heart, ShieldCheck, MapPin, ArrowRight, CheckCircle2, Award, Briefcase, X, BadgeCheck } from 'lucide-react';
 
 /* ── inline responsive style helpers ── */
 const heroTitleStyle = {
@@ -34,7 +34,7 @@ export default function Home() {
       <section style={{
         position: 'relative',
         minHeight: 'clamp(520px, 85vh, 900px)',
-        background: 'linear-gradient(180deg, rgba(20,53,39,0.87) 0%, rgba(13,35,25,0.93) 100%), url("https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=2000&q=80")',
+        background: 'linear-gradient(180deg, rgba(20,53,39,0.87) 0%, rgba(13,35,25,0.93) 100%), url("/assets/gallery/aps-gallery-01.jpeg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center 30%',
         color: '#FFFFFF',
@@ -80,19 +80,48 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Registration strip */}
+            {/* Compliance status badges — Registered NGO | CSR | 12A | 80G */}
+            <div style={{
+              display: 'flex', gap: '0.6rem', flexWrap: 'wrap',
+              marginBottom: '1.2rem', maxWidth: '100%',
+            }}>
+              {[
+                'Registered NGO',
+                'CSR Registered',
+                '12A Registered',
+                '80G Registered',
+              ].map(label => (
+                <span key={label} style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+                  background: 'rgba(255,255,255,0.1)',
+                  border: '1px solid rgba(212,154,53,0.45)',
+                  padding: '0.35rem 0.85rem', borderRadius: '50px',
+                  color: 'var(--color-saffron-light)',
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: 'clamp(0.7rem, 1.6vw, 0.8rem)', fontWeight: 600,
+                  letterSpacing: '0.4px', whiteSpace: 'nowrap',
+                }}>
+                  <BadgeCheck size={14} style={{ color: 'var(--color-saffron)', flexShrink: 0 }} />
+                  {label}
+                </span>
+              ))}
+            </div>
+
+            {/* Registration strip — exact known values only, no guessed numbers */}
             <div style={{
               display: 'flex', gap: '1.5rem', flexWrap: 'wrap',
               borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '1.5rem',
+              maxWidth: '100%',
             }}>
               {[
                 { label: 'Registration No.', value: ORG_DETAILS.legal.registrationNumber },
-                { label: 'Tax Registration', value: ORG_DETAILS.legal.incomeTaxRegistration },
-                { label: 'PAN', value: ORG_DETAILS.legal.pan },
+                { label: '12A', value: ORG_DETAILS.legal.twelveA || ORG_DETAILS.legal.incomeTaxRegistration },
+                { label: '80G', value: ORG_DETAILS.legal.eightyG || 'Registered' },
+                { label: 'CSR No.', value: ORG_DETAILS.legal.csrNumber || 'Registered' },
               ].map(item => (
-                <div key={item.label}>
+                <div key={item.label} style={{ minWidth: 0 }}>
                   <span style={{ display: 'block', fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase', letterSpacing: '1px' }}>{item.label}</span>
-                  <strong style={{ fontSize: 'clamp(0.8rem, 1.5vw, 0.95rem)', color: 'var(--color-saffron)' }}>{item.value}</strong>
+                  <strong style={{ fontSize: 'clamp(0.8rem, 1.5vw, 0.95rem)', color: 'var(--color-saffron)', wordBreak: 'break-word' }}>{item.value}</strong>
                 </div>
               ))}
             </div>
@@ -305,13 +334,13 @@ export default function Home() {
             <h2 style={{ fontSize: 'clamp(1.4rem, 3vw, 1.8rem)', color: 'var(--color-primary-dark)', margin: '0.6rem 0 1rem' }}>
               {selectedProgram.title}
             </h2>
-            <div style={{ position: 'relative', height: 'clamp(200px, 35vw, 280px)', overflow: 'hidden', borderRadius: '12px', marginBottom: '1.2rem', backgroundColor: '#1A2922' }}>
+            <div style={{ position: 'relative', borderRadius: '12px', marginBottom: '1.2rem', backgroundColor: '#1A2922', overflow: 'hidden' }}>
               <img
                 src={selectedProgram.image}
                 alt={selectedProgram.title}
                 loading="lazy"
                 decoding="async"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
+                style={{ width: '100%', height: 'auto', maxHeight: '50vh', objectFit: 'contain', display: 'block' }}
               />
             </div>
             <p style={{ fontSize: 'clamp(0.95rem, 2vw, 1.02rem)', lineHeight: 1.7, color: 'var(--color-gray-dark)' }}>

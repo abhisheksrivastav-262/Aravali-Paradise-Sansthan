@@ -173,7 +173,7 @@ export default function Gallery() {
             position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
             background: 'rgba(0,0,0,0.92)', backdropFilter: 'blur(8px)',
             zIndex: 3000, display: 'flex', alignItems: 'center', justifyContent: 'center',
-            padding: 'clamp(0.8rem, 3vw, 2rem)'
+            padding: 'clamp(0.8rem, 3vw, 2rem)', overflowY: 'auto',
           }}
           onClick={closeLightbox}
         >
@@ -217,13 +217,13 @@ export default function Gallery() {
             <ChevronRight size={26} />
           </button>
 
-          <div style={{ maxWidth: '1000px', width: '100%', maxHeight: '100%' }} onClick={e => e.stopPropagation()}>
+          <div style={{ maxWidth: '1000px', width: '100%', maxHeight: '100%', margin: 'auto' }} onClick={e => e.stopPropagation()}>
             <img
               src={activeImage.image}
               alt={`${activeImage.title} — ${activeImage.caption}`}
               style={{
-                width: '100%', maxHeight: '72vh', objectFit: 'contain',
-                borderRadius: '10px', background: '#000', display: 'block',
+                width: '100%', height: 'auto', maxHeight: 'calc(100vh - 250px)', maxWidth: '100%',
+                objectFit: 'contain', borderRadius: '10px', background: '#000', display: 'block', margin: '0 auto',
               }}
             />
             <div style={{ marginTop: '1rem', textAlign: 'center' }}>

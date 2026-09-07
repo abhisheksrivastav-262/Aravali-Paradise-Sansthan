@@ -57,11 +57,11 @@ export default function Environment() {
 
             <div>
               <div className="card" style={{ padding: 'clamp(1.2rem, 2.5vw, 2rem)', background: 'var(--color-sand)' }}>
-                <div style={{ position: 'relative', height: 'clamp(200px, 30vw, 300px)', overflow: 'hidden', borderRadius: '12px', marginBottom: '1.2rem', backgroundColor: '#1A2922' }}>
+                <div style={{ position: 'relative', aspectRatio: '4 / 3', overflow: 'hidden', borderRadius: '12px', marginBottom: '1.2rem', backgroundColor: '#1A2922' }}>
                   <img 
-                    src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&w=1000&q=80" 
+                    src="/assets/gallery/aps-gallery-03.jpeg" 
                     alt="Environment Conservation" 
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} 
+                    style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'center' }} 
                   />
                   <div style={{ position: 'absolute', top: '1rem', right: '1rem', background: '#FFFFFF', padding: '0.5rem', borderRadius: '50%', color: 'var(--color-primary)' }}>
                      <Droplets size={24} />

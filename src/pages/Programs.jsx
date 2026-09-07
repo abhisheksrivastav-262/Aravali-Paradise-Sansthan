@@ -69,13 +69,13 @@ export default function Programs() {
             <h2 style={{ fontSize: 'clamp(1.4rem, 3vw, 1.8rem)', color: 'var(--color-primary-dark)', margin: '0.6rem 0 1rem' }}>
               {selectedProgram.title}
             </h2>
-            <div style={{ position: 'relative', height: 'clamp(200px, 35vw, 280px)', overflow: 'hidden', borderRadius: '12px', marginBottom: '1.2rem', backgroundColor: '#1A2922' }}>
+            <div style={{ position: 'relative', borderRadius: '12px', marginBottom: '1.2rem', backgroundColor: '#1A2922', overflow: 'hidden' }}>
               <img 
                 src={selectedProgram.image} 
                 alt={selectedProgram.title}
                 loading="lazy"
                 decoding="async"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} 
+                style={{ width: '100%', height: 'auto', maxHeight: '50vh', objectFit: 'contain', display: 'block' }} 
               />
             </div>
             <p style={{ fontSize: 'clamp(0.95rem, 2vw, 1.02rem)', lineHeight: 1.7, color: 'var(--color-gray-dark)' }}>

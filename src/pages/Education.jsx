@@ -58,11 +58,11 @@ export default function Education() {
 
             <div>
               <div className="card" style={{ padding: 'clamp(1.2rem, 2.5vw, 2rem)', background: 'var(--color-sand)' }}>
-                <div style={{ position: 'relative', height: 'clamp(200px, 30vw, 280px)', overflow: 'hidden', borderRadius: '12px', marginBottom: '1.2rem', backgroundColor: '#1A2922' }}>
+                <div style={{ position: 'relative', aspectRatio: '4 / 3', overflow: 'hidden', borderRadius: '12px', marginBottom: '1.2rem', backgroundColor: '#1A2922' }}>
                   <img
-                    src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1000&q=80"
+                    src="/assets/gallery/aps-gallery-27.jpeg"
                     alt="APS School Students"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%' }}
+                    style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'center 20%' }}
                   />
                 </div>
                 <h4 style={{ color: 'var(--color-primary-dark)', fontSize: '1.1rem', marginBottom: '0.4rem' }}>

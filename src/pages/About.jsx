@@ -80,13 +80,13 @@ export default function About() {
             {/* Credentials card */}
             <div>
               <div className="card" style={{ padding: 'clamp(1.5rem, 3vw, 2rem)', background: 'var(--color-sand)' }}>
-                <div style={{ position: 'relative', height: 'clamp(200px, 30vw, 280px)', overflow: 'hidden', borderRadius: '12px', marginBottom: '1.5rem', backgroundColor: '#1A2922' }}>
+                  <div style={{ position: 'relative', aspectRatio: '4 / 3', overflow: 'hidden', borderRadius: '12px', marginBottom: '1.5rem', backgroundColor: '#1A2922' }}>
                   <img
-                    src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=1000&q=80"
+                    src="/assets/gallery/aps-gallery-25.jpeg"
                     alt="APS Community Engagement"
                     loading="lazy"
                     decoding="async"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
+                    style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'center top' }}
                   />
                 </div>
                 <h3 style={{ fontSize: '1.2rem', color: 'var(--color-primary-dark)', marginBottom: '0.8rem' }}>
